@@ -1,0 +1,17 @@
+---
+
+version: '3.8'
+
+services:
+  app:
+    working_dir: /var/local/app
+    image: ruby:3-bullseye
+    volumes:
+      - bundle-install:/usr/local/bundle
+      - ${PWD}/:/var/local/app/
+    ports:
+      - 9292:9292
+
+volumes:
+  bundle-install:
+    driver: local
